@@ -101,12 +101,6 @@ variable "location" {
   default     = "eastus"
 }
 
-variable "time_to_wait_after_apply" {
-  description = "time to wait after the postgresql server is created"
-  type        = string
-  default     = "30s"
-}
-
 variable "public_network_access_enabled" {
   description = "Whether or not public network access is allowed for this server"
   type        = bool
@@ -169,7 +163,18 @@ variable "storage_mb" {
   }
 }
 
-variable "postgresql_server_configuration" {
+variable "zone" {
+  description = "The zone of the Postgres Flexible Server"
+  type        = string
+  default     = null
+
+  validation {
+    condition     = var.zone == null || can(regex("^[0-9]$", var.zone))
+    error_message = "Invalid value for `zone`"
+  }
+}
+
+variable "server_configuration" {
   description = "Map of configurations to apply to the postgres flexible server"
   type        = map(string)
   default     = {}

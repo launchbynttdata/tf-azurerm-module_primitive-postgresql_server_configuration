@@ -7,14 +7,12 @@
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.113 |
-| <a name="requirement_time"></a> [time](#requirement\_time) | ~> 0.12 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.116.0 |
-| <a name="provider_time"></a> [time](#provider\_time) | 0.12.1 |
 
 ## Modules
 
@@ -29,7 +27,6 @@
 
 | Name | Type |
 |------|------|
-| [time_sleep.wait_after_apply](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep) | resource |
 | [azurerm_client_config.client](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) | data source |
 
 ## Inputs
@@ -43,20 +40,20 @@
 | <a name="input_logical_product_service"></a> [logical\_product\_service](#input\_logical\_product\_service) | (Required) Name of the product service for which the resource is created.<br>    For example, backend, frontend, middleware etc. | `string` | `"database"` | no |
 | <a name="input_class_env"></a> [class\_env](#input\_class\_env) | (Required) Environment where resource is going to be deployed. For example. dev, qa, uat | `string` | `"dev"` | no |
 | <a name="input_location"></a> [location](#input\_location) | Location of the Postgres Flexible Server | `string` | `"eastus"` | no |
-| <a name="input_time_to_wait_after_apply"></a> [time\_to\_wait\_after\_apply](#input\_time\_to\_wait\_after\_apply) | time to wait after the postgresql server is created | `string` | `"30s"` | no |
 | <a name="input_public_network_access_enabled"></a> [public\_network\_access\_enabled](#input\_public\_network\_access\_enabled) | Whether or not public network access is allowed for this server | `bool` | `false` | no |
 | <a name="input_authentication"></a> [authentication](#input\_authentication) | active\_directory\_auth\_enabled = Whether or not Active Directory authentication is enabled for this server<br>password\_auth\_enabled         = Whether or not password authentication is enabled for this server<br>tenant\_id                     = The tenant ID of the Active Directory to use for authentication | <pre>object({<br>    active_directory_auth_enabled = optional(bool)<br>    password_auth_enabled         = optional(bool)<br>    tenant_id                     = optional(string)<br>  })</pre> | `null` | no |
 | <a name="input_administrator_login"></a> [administrator\_login](#input\_administrator\_login) | The administrator login for the Postgres Flexible Server.<br>Required when `create_mode` is Default and `authentication.password_auth_enabled` is true | `string` | `null` | no |
 | <a name="input_administrator_password"></a> [administrator\_password](#input\_administrator\_password) | The administrator password for the Postgres Flexible Server.<br>Required when `create_mode` is Default and `authentication.password_auth_enabled` is true | `string` | `null` | no |
 | <a name="input_storage_mb"></a> [storage\_mb](#input\_storage\_mb) | The storage capacity of the Postgres Flexible Server in megabytes | `number` | `32768` | no |
-| <a name="input_postgresql_server_configuration"></a> [postgresql\_server\_configuration](#input\_postgresql\_server\_configuration) | Map of configurations to apply to the postgres flexible server | `map(string)` | `{}` | no |
+| <a name="input_zone"></a> [zone](#input\_zone) | The zone of the Postgres Flexible Server | `string` | `null` | no |
+| <a name="input_server_configuration"></a> [server\_configuration](#input\_server\_configuration) | Map of configurations to apply to the postgres flexible server | `map(string)` | `{}` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags to assign to the resource. | `map(string)` | `{}` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_postgres_server_name"></a> [postgres\_server\_name](#output\_postgres\_server\_name) | n/a |
+| <a name="output_server_name"></a> [server\_name](#output\_server\_name) | n/a |
 | <a name="output_resource_group_name"></a> [resource\_group\_name](#output\_resource\_group\_name) | n/a |
-| <a name="output_postgres_server_configuration"></a> [postgres\_server\_configuration](#output\_postgres\_server\_configuration) | n/a |
+| <a name="output_server_configuration"></a> [server\_configuration](#output\_server\_configuration) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

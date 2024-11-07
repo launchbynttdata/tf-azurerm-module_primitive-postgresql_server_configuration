@@ -10,7 +10,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-output "postgres_server_name" {
+output "server_name" {
   value = module.postgresql_server.name
 }
 
@@ -18,6 +18,6 @@ output "resource_group_name" {
   value = module.resource_group.name
 }
 
-output "postgres_server_configuration" {
+output "server_configuration" {
   value = { for config in module.postgresql_server_configuration : config.name => config.value }
 }

@@ -31,13 +31,6 @@ func TestPostgresqlConfigurationModule(t *testing.T) {
 		SetTestConfig(&testimpl.ThisTFModuleConfig{}).
 		SetTestConfigFolderName(testConfigsExamplesFolderDefault).
 		SetTestConfigFileName(infraTFVarFileNameDefault).
-		SetTestSpecificFlags(map[string]types.TestFlags{
-			"complete": {
-				"IS_TERRAFORM_IDEMPOTENT_APPLY": true,
-				// TODO: allow provider registry.terraform.io/hashicorp/time
-				"SKIP_TEST": true,
-			},
-		}).
 		Build()
 
 	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestPostgresqlServer)

@@ -60,28 +60,20 @@ module "postgresql_server" {
 
   storage_mb = var.storage_mb
 
+  zone = var.zone
+
   tags = merge(var.tags, { resource_name = module.resource_names["postgresql_server"].standard })
 
   depends_on = [module.resource_group]
 }
 
-# the Azure API returns a 404 for the postgresql server for some time after terraform thinks its created
-resource "time_sleep" "wait_after_apply" {
-  create_duration = var.time_to_wait_after_apply
-
-  depends_on = [module.postgresql_server]
-}
-
 module "postgresql_server_configuration" {
   source = "../.."
 
-  for_each = var.postgresql_server_configuration
+  for_each = var.server_configuration
 
-  postgresql_server_name = module.postgresql_server.name
-  resource_group_name    = module.resource_group.name
+  postgresql_server_id = module.postgresql_server.id
 
   configuration_key   = each.key
   configuration_value = each.value
-
-  depends_on = [time_sleep.wait_after_apply]
 }

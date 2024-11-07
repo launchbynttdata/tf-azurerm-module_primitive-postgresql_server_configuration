@@ -12,15 +12,15 @@
 
 output "id" {
   description = "the ID of the postgresql server configuration"
-  value       = azurerm_postgresql_configuration.configuration.id
+  value       = azurerm_postgresql_flexible_server_configuration.configuration.id
 }
 
 output "name" {
   description = "the name of the postgresql server configuration"
-  value       = azurerm_postgresql_configuration.configuration.name
+  value       = azurerm_postgresql_flexible_server_configuration.configuration.name
 }
 
 output "value" {
   description = "the value of the postgresql server configuration"
-  value       = azurerm_postgresql_configuration.configuration.value
+  value       = azurerm_postgresql_flexible_server_configuration.configuration.value
 }

@@ -125,14 +125,13 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [azurerm_postgresql_configuration.configuration](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_configuration) | resource |
+| [azurerm_postgresql_flexible_server_configuration.configuration](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server_configuration) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_postgresql_server_name"></a> [postgresql\_server\_name](#input\_postgresql\_server\_name) | Name of the Postgresql flexible server | `string` | n/a | yes |
-| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Resource group name of the Postgres Flexible Server | `string` | n/a | yes |
+| <a name="input_postgresql_server_id"></a> [postgresql\_server\_id](#input\_postgresql\_server\_id) | Id of the Postgresql flexible server | `string` | n/a | yes |
 | <a name="input_configuration_key"></a> [configuration\_key](#input\_configuration\_key) | The configuration key to set on the postgresql flexible server | `string` | n/a | yes |
 | <a name="input_configuration_value"></a> [configuration\_value](#input\_configuration\_value) | The configuration value to set on the postgresql flexible server | `string` | n/a | yes |
 

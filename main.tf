@@ -10,9 +10,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-resource "azurerm_postgresql_configuration" "configuration" {
-  server_name         = var.postgresql_server_name
-  resource_group_name = var.resource_group_name
+resource "azurerm_postgresql_flexible_server_configuration" "configuration" {
+  server_id = var.postgresql_server_id
 
   name  = var.configuration_key
   value = var.configuration_value

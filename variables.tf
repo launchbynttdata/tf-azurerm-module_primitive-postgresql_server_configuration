@@ -10,13 +10,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-variable "postgresql_server_name" {
-  description = "Name of the Postgresql flexible server"
-  type        = string
-}
-
-variable "resource_group_name" {
-  description = "Resource group name of the Postgres Flexible Server"
+variable "postgresql_server_id" {
+  description = "Id of the Postgresql flexible server"
   type        = string
 }
 
