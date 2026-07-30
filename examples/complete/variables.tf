@@ -98,7 +98,7 @@ variable "class_env" {
 variable "location" {
   description = "Location of the Postgres Flexible Server"
   type        = string
-  default     = "eastus"
+  default     = "centralus"
 }
 
 variable "public_network_access_enabled" {
