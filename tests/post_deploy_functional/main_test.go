@@ -33,5 +33,5 @@ func TestPostgresqlConfigurationModule(t *testing.T) {
 		SetTestConfigFileName(infraTFVarFileNameDefault).
 		Build()
 
-	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestPostgresqlServer)
+	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestComposablePostgresqlServer)
 }
