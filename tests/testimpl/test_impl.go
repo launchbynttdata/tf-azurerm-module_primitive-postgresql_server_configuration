@@ -38,9 +38,9 @@ func TestComposablePostgresqlServer(t *testing.T, ctx types.TestContext) {
 	}
 
 	t.Run("doesPostgresqlServerConfigurationExist", func(t *testing.T) {
-		resourceGroupName := terraform.Output(t, ctx.TerratestTerraformOptions(), "resource_group_name")
-		postgresName := terraform.Output(t, ctx.TerratestTerraformOptions(), "server_name")
-		postgresConfig := terraform.OutputMap(t, ctx.TerratestTerraformOptions(), "server_configuration")
+		resourceGroupName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "resource_group_name")
+		postgresName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "server_name")
+		postgresConfig := terraform.OutputMapContext(t, context.Background(), ctx.TerratestTerraformOptions(), "server_configuration")
 
 		for key := range postgresConfig {
 			postgresqlConfig, err := armPostgresConfigClient.Get(context.Background(), resourceGroupName, postgresName, key, nil)
