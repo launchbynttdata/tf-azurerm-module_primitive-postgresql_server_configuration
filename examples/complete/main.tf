@@ -14,7 +14,7 @@ data "azurerm_client_config" "client" {}
 
 module "resource_names" {
   source  = "terraform.registry.launch.nttdata.com/module_library/resource_name/launch"
-  version = "~> 2.0"
+  version = "~> 2.4"
 
   for_each = var.resource_names_map
 
@@ -30,7 +30,7 @@ module "resource_names" {
 
 module "resource_group" {
   source  = "terraform.registry.launch.nttdata.com/module_primitive/resource_group/azurerm"
-  version = "~> 1.0"
+  version = "~> 1.2"
 
   name     = module.resource_names["resource_group"].minimal_random_suffix
   location = var.location
@@ -40,7 +40,7 @@ module "resource_group" {
 
 module "postgresql_server" {
   source  = "terraform.registry.launch.nttdata.com/module_primitive/postgresql_server/azurerm"
-  version = "~> 1.0"
+  version = "~> 3.0"
 
   name                = module.resource_names["postgresql_server"].minimal_random_suffix
   resource_group_name = module.resource_group.name
